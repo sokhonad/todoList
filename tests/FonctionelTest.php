@@ -17,9 +17,9 @@ class FonctionelTest extends WebTestCase
 
         $crawler = $client->request(Request::METHOD_GET, $urlGenerator->generate('app_to_do_list_index'));
 
-        $form = $crawler->filter('form[name=ingredient]')->form([
-            'ingredient[title]' => "Un ingrédient",
-            'ingredient[status]' => is_bool(true)
+        $form = $crawler->filter('form[name=todolist]')->form([
+            'todolist[title]' => "Un todolist",
+            'todolist[status]' => is_bool(true)
         ]);
 
         $client->submit($form);
