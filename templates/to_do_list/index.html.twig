@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ToDoList index{% endblock %}
+
+{% block body %}
+    <h2 STYLE="align-content: center">Create new ToDoList</h2>
+    {{ include('to_do_list/_form.html.twig') }}
+    <h3> My ToDoList </h3>
+    <main class="container">
+        <section section class="row">
+            {% for to_do_list in pagination %}
+                <div class="card mb-3" style="max-width: 30%;">
+                    <div class="row no-gutters">
+                        <div class="col-md-">
+                            <img  style="max-width: 80%" src="{{ vich_uploader_asset(to_do_list, 'imageFile') }}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ to_do_list.title }}</h5> </br>
+                                <h5 class="card-title"><strong> categorie:</strong>  {{ to_do_list.categorie }}</h5> </br>
+
+                                <strong>Terminé:</strong> {{ to_do_list.status ? 'Yes' : 'No' }}
+                                </br>
+{#                                <a href="{{ path('app_to_do_list_show', {'id': to_do_list.id}) }}">show</a>#}
+                                </br>
+                                <a href="{{ path('app_to_do_list_edit', {'id': to_do_list.id}) }}">noté ou edit</a>
+                                </br>
+                                <p class="card-text"><small class="text-muted">Terminé: {{ to_do_list.status ? 'Yes' : 'No' }}</small></p>
+                                {{ include('to_do_list/_delete_form.html.twig') }}
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+    <div class="d-flex justify-content-center">
+        {{ knp_pagination_render(pagination) }}
+
+    </div>
+
+{% endblock %}
