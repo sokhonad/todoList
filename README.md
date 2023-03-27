@@ -8,7 +8,7 @@ Clone the project
 Deplacer et demarrer le server Symfony
 
 ```bash
-  cd todoList
+  cd monitoring_modules
    (optionnel) php bin/console make:migration
    php bin/console doctrine:migrations:migrate
   symfony serve
