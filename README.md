@@ -3,12 +3,12 @@
 Clone the project
 
 ```bash
-  https://github.com/sokhonad/monitoring_modules.git
+  h  https://github.com/sokhonad/todoList.git
 ```
 Deplacer et demarrer le server Symfony
 
 ```bash
-  cd monitoring_modules
+  cd todoList
    (optionnel) php bin/console make:migration
    php bin/console doctrine:migrations:migrate
   symfony serve
